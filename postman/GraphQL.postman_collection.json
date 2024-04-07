@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "845f0bf8-7864-4546-b3c9-c47813a6ed6d",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23840964"
+	},
+	"item": [
+		{
+			"name": "getShoppingList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwidXNlcklkIjoxNCwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE3MTA3NjI3ODUsImV4cCI6MTcxMzM1NDc4NX0.PfJA_nuASCw89-x_cLJD-XT1OXeqPspFMzB3TLFMS7A"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n   getShoppingList(userId: \"14\") {\r\n    title\r\n    products {\r\n        product_title\r\n      }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "getProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwidXNlcklkIjoxNCwicm9sZSI6InZpc2l0b3IiLCJpYXQiOjE3MTA3NjI3ODUsImV4cCI6MTcxMzM1NDc4NX0.PfJA_nuASCw89-x_cLJD-XT1OXeqPspFMzB3TLFMS7A"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n   getProduct(shoppingListId: \"16\") {\r\n    product_title\r\n    product_id\r\n    price\r\n    quantity\r\n    shopping_list_id\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "createShoppingList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  createShoppingList(shoppingListInput: {\r\n    title: \"New List\",\r\n    amount: 0,\r\n    user_id: 14\r\n  })\r\n}\r\n\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "createProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  createProduct(productInput: {\r\n    title: \"product5\",\r\n    price: 2,\r\n    quantity: 1,\r\n    shopping_list_id: 16\r\n  }\r\n  )\r\n}\r\n\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    deleteProduct(productId: \"16\")\r\n}",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteShoppingList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    deleteShoppingList(shoppingListId: \"18\")\r\n}",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    updateProduct(productInput: {\r\n    \r\n    product_id: 31\r\n  })\r\n}",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n   getUser(userInput: \"15\"){\r\n    username,\r\n    email\r\n   }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:8082/graphql"
+			},
+			"response": []
+		}
+	]
+}
